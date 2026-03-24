@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hildah Nduni - Barista Résumé</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lora', sans-serif;
+            background: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+           
+        }
+
+        .resume-container {
+            max-width: 1500px;
+            width: 100%;
+            background: linear-gradient(135deg, #f5ebe0 0%, #e8d5c4 100%);
+            box-shadow: 0 20px 60px rgba(241, 164, 8, 0.271);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .decorative-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.4;
+        }
+
+        .circle-1 {
+            width: 200px;
+            height: 200px;
+            background: #c9a485;
+            border-radius: 50%;
+            top: -80px;
+            left: -50px;
+        }
+
+        .circle-2 {
+            width: 150px;
+            height: 150px;
+            background: #d4a574;
+            border-radius: 50%;
+            top: 50px;
+            right: -40px;
+        }
+
+        .circle-3 {
+            width: 100px;
+            height: 100px;
+            background: #b8956a;
+            border-radius: 50%;
+            bottom: 100px;
+            left: 50px;
+        }
+
+        .dots {
+            width: 80px;
+            height: 80px;
+            background-image: radial-gradient(circle, #a67c52 2px, transparent 2px);
+            background-size: 12px 12px;
+            bottom: 50px;
+            right: 80px;
+        }
+
+        .wave {
+            width: 200px;
+            height: 150px;
+            background: #d4a574;
+            border-radius: 50%;
+            bottom: -75px;
+            left: -60px;
+            opacity: 0.3;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 60px 50px;
+        }
+
+        .left-column {
+            padding-right: 20px;
+        }
+
+        .right-column {
+            padding-left: 20px;
+            border-left: 2px solid rgba(139, 101, 68, 0.2);
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-family: 'Lora', serif;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #2c1810;
+            line-height: 1.1;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .header .title {
+            font-size: 1.1em;
+            font-weight: 400;
+            letter-spacing: 4px;
+            color: #5c4033;
+            margin-bottom: 20px;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #c9a485 0%, #a67c52 100%);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-family: 'Lora', serif;
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #2c1810;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #a67c52;
+        }
+
+        .summary-text {
+            font-size: 0.95em;
+            line-height: 1.7;
+            color: #3d3d3d;
+            text-align: justify;
+        }
+
+        .education-item, .experience-item {
+            margin-bottom: 25px;
+        }
+
+        .education-item h3, .experience-item h3 {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #2c1810;
+            margin-bottom: 5px;
+        }
+
+        .education-item .institution, .experience-item .company {
+            font-size: 0.95em;
+            color: #5c4033;
+            margin-bottom: 8px;
+        }
+
+        .education-item ul, .experience-item ul {
+            list-style-position: inside;
+            padding-left: 5px;
+        }
+
+        .education-item li, .experience-item li {
+            font-size: 0.9em;
+            line-height: 1.6;
+            color: #3d3d3d;
+            margin-bottom: 5px;
+        }
+
+        .skills-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.9em;
+            color: #3d3d3d;
+        }
+
+        .skill-item::before {
+            content: "●";
+            color: #a67c52;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        .expertise-bars {
+            margin-top: 20px;
+        }
+
+        .expertise-item {
+            margin-bottom: 15px;
+        }
+
+        .expertise-label {
+            font-size: 0.9em;
+            color: #2c1810;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .bar-container {
+            height: 12px;
+            background: rgba(166, 124, 82, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #5c4033 0%, #a67c52 100%);
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            color: #3d3d3d;
+        }
+
+        .contact-icon {
+            width: 35px;
+            height: 35px;
+            background: #a67c52;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .certification-badge {
+            background: linear-gradient(135deg, #f5ebe0 0%, #f5ebe0 100%);
+            color: rgb(0, 0, 0);
+            padding: 12px 18px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .cert-title {
+            font-weight: 600;
+            font-size: 0.95em;
+            margin-bottom: 3px;
+        }
+
+        .cert-date {
+            font-size: 0.8em;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 40px 30px;
+            }
+
+            .right-column {
+                border-left: none;
+                border-top: 2px solid rgba(139, 101, 68, 0.2);
+                padding-left: 0;
+                padding-top: 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+                font-size: 3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="decorative-shapes">
+            <div class="shape circle-1"></div>
+            <div class="shape circle-2"></div>
+            <div class="shape circle-3"></div>
+            <div class="shape dots"></div>
+            <div class="shape wave"></div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="left-column">
+                <div class="header">
+                    <h1>HILDA<br>NDUNI</h1>
+                    <div class="title">BARISTA</div>
+                    <p class="summary-text">
+                        Certified and passionate Barista trained at the Nairobi School of Coffee by Dormans. Skilled in espresso extraction, milk texturing, and latte art, with hands-on experience in fast-paced café environments. Adept at maintaining consistency, ensuring top-tier customer satisfaction, and optimizing operations through attention to detail, teamwork, and strong communication.
+                    </p>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Education</h2>
+                    <div class="education-item">
+                        <h3>High School Diploma</h3>
+                        <div class="institution">Kathithyamaa High School (2016 – 2019)</div>
+                    </div>
+
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Experience</h2>
+                    <div class="experience-item">
+                        <h3>Barista Intern</h3>
+                        <div class="company">Freshly Ground – Moera Enterprises | Sep 2024 </div>
+                        <h3>Barista Attendant</h3>
+                        <div class="company">Freshly Ground – Moera Enterprises | Oct 2024 – May 2025</div>
+                        <ul>
+                            <li>Delivered outstanding customer service to 150+ daily patrons, maintaining a 98% satisfaction rate.</li>
+                            <li>Prepared espresso-based beverages with precision and artistry.</li>
+                            <li>Managed inventory, reducing waste by 15% through diligent tracking.</li>
+                            <li>Operated POS and reconciled cash with zero discrepancies.</li>
+                            <li>Maintained hygiene and safety standards in all preparation areas.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="section">
+                    <h2 class="section-title">Certifications</h2>
+                    <div class="certification-badge">
+                        <div class="education-item">Advanced Coffee Course</div>
+                        <div class="institution">Nairobi School of Coffee by Dormans | Jul 2024</div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="right-column">
+                <div class="profile-photo">☕</div>
+
+                <div class="section">
+                    <h2 class="section-title">Core Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-item">Espresso Extraction & Latte Art</div>
+                        <div class="skill-item">Milk Texturing & Manual Brewing</div>
+                        <div class="skill-item">Customer Engagement & Upselling</div>
+                        <div class="skill-item">POS Handling & Cash Reconciliation</div>
+                        <div class="skill-item">Inventory & Stock Control</div>
+                        <div class="skill-item">Equipment Maintenance</div>
+                        <div class="skill-item">Food Safety & Hygiene</div>
+                        <div class="skill-item">Teamwork & Communication</div>
+                        <div class="skill-item">Adaptability & Time Management</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Expertise</h2>
+                    <div class="expertise-bars">
+                        <div class="expertise-item">
+                            <div class="expertise-label">Coffee Craftsmanship</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="expertise-item">
+                            <div class="expertise-label">Customer Service</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                        <div class="expertise-item">
+                            <div class="expertise-label">Operations Management</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="expertise-item">
+                            <div class="expertise-label">Equipment & Hygiene</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" style="width: 88%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Contact</h2>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>0716650253</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>ndunihilda@gmail.com</div>
+                    </div>
+                   
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>Nairobi, Kenya</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
